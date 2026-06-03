@@ -187,9 +187,7 @@ success "JSON 结构校验通过"
 defaults write "$CHROME_BUNDLE_ID" VariationsRestrictParameter -string "us" 2>/dev/null \
     || warn "VariationsRestrictParameter 写入失败（非致命）"
 defaults delete "$CHROME_BUNDLE_ID" AppleLanguages 2>/dev/null || true
-defaults write "$CHROME_BUNDLE_ID" AppleLanguages -array "en-US" 2>/dev/null \
-    || warn "AppleLanguages 写入失败（非致命）"
-success "macOS 系统级设置已写入"
+success "macOS 系统级设置已写入，并已清除 Chrome 单应用语言覆盖"
 
 # ── 完成 ─────────────────────────────────────────────────────
 echo ""
@@ -200,10 +198,11 @@ echo ""
 echo -e "${YELLOW}后续步骤:${NC}"
 echo "  1. 确保 VPN 已连接到美国节点"
 echo "  2. 重新启动 $CHROME_APP_NAME"
+echo "  3. Chrome 界面语言会跟随 macOS 系统语言；如需英文界面，可在系统设置中单独配置 $CHROME_APP_NAME"
 echo ""
 echo -e "${YELLOW}若 Gemini 侧边栏仍未出现，依次检查:${NC}"
 echo -e "  ${CYAN}①${NC} chrome://flags → 搜索 Glic，将 Glic / Glic Actor / Glic Pre-Warming 设为 Enabled"
-echo -e "  ${CYAN}②${NC} chrome://settings/languages → English (United States) 排在首位"
+echo -e "  ${CYAN}②${NC} chrome://settings/languages → English (United States) 可用，但无需作为界面语言"
 echo -e "  ${CYAN}③${NC} 打开 Gemini 侧边栏，完成 Personal Intelligence 初始化"
 echo -e "  ${CYAN}④${NC} 确认 Google 账号为美区账号"
 echo ""

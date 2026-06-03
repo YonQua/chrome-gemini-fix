@@ -14,8 +14,8 @@
 
 - **强制开启 AI 资格**：修改 `Local State` 配置文件，将 `is_glic_eligible` 强制设为 `true`。
 - **地区伪装**：将 Chrome 的 variations country 设置为 `us` (美国)。
-- **语言强制**：强制将 `app_locale` 设置为 `en-US`。
-- **持久化配置**：使用 macOS `defaults` 命令，防止重启后配置被重置。
+- **语言配置**：将 Chrome 内部 `app_locale` 设置为 `en-US`，同时清除 macOS 单应用语言覆盖，让界面语言跟随系统。
+- **持久化配置**：使用 macOS `defaults` 命令写入地区限制参数，防止重启后配置被重置。
 - **自动备份**：在修改前自动备份您的 `Local State` 文件，安全无忧。
 - **一键回滚**：通过 `--restore` 参数从最近备份恢复。
 - **Canary 支持**：同时支持标准 Chrome 和 Chrome Canary。
@@ -71,8 +71,8 @@ Unlock the hidden "Auto Browse" (AI Agent) features in Google Chrome (v144+) by 
 
 - **Force Enable AI Eligibility**: Patches `Local State` to set `is_glic_eligible` to `true`.
 - **Region Spoofing**: Sets Chrome variations country to `us` (United States).
-- **Language Enforcer**: Forces `app_locale` to `en-US`.
-- **Persistence**: Uses macOS `defaults` to prevent settings from resetting after restart.
+- **Language Handling**: Sets Chrome's internal `app_locale` to `en-US` while clearing the macOS per-app language override so the UI follows the system language.
+- **Persistence**: Uses macOS `defaults` to persist the region restriction parameter.
 - **Backup & Restore**: Automatically backs up before changes; `--restore` reverts instantly.
 - **Canary Support**: Supports standard Chrome and Chrome Canary.
 
